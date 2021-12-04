@@ -3,24 +3,23 @@ package com.example;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 public class CompanyHandler {
-    public static ArrayList<String> readAllCompanies() {
+    public ArrayList<String> readAllCompanies() throws IOException {
         ArrayList<String> records = new ArrayList<String>();
+        File currentDirFile = new File(".");
+        String helper = currentDirFile.getAbsolutePath();
+
+        System.out.println(helper);
+        File d = new File("");
         try {
-
-            CSVReader reader = new CSVReader(new FileReader("C:\\Users\\DRAGOS\\Desktop\\hackitall\\API forbes\\src\\main\\java\\500COMPANII_CSV.csv"));
-
+            InputStream is = this.getClass().getClassLoader().getResourceAsStream("500COMPANII_CSV.csv");
+            CSVReader reader = new CSVReader(new InputStreamReader(is));
             String[] nextLine;
-
+            reader.readNext();
             while ((nextLine = reader.readNext()) != null) {
 
                 String name = nextLine[0];
@@ -38,16 +37,12 @@ public class CompanyHandler {
         return records;
     }
 
-    public static Optional<ArrayList<Coordinates>> getCompanyData(String company) throws IOException, CsvValidationException {
-        File f = new File("src/main/resources/"+company+".csv");
-        System.out.println(f.getAbsolutePath());
-        if(!f.exists()) {
-            return Optional.empty();
-        }
+    public Optional<ArrayList<Coordinates>> getCompanyData(String company) throws IOException, CsvValidationException {
 
         ArrayList<Coordinates> asd =new ArrayList<Coordinates>();
-        CSVReader reader = new CSVReader(new FileReader(f));
-
+        InputStream is = this.getClass().getClassLoader().getResourceAsStream(company+".csv");
+        CSVReader reader = new CSVReader(new InputStreamReader(is));
+        System.out.println(is.toString());
         String[] nextLine;
         reader.readNext();
         try{
