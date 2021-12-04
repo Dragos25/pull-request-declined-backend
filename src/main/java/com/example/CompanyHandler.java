@@ -39,7 +39,7 @@ public class CompanyHandler {
     }
 
     public static Optional<ArrayList<Coordinates>> getCompanyData(String company) throws IOException, CsvValidationException {
-        File f = new File("src/main/resources/"+company+".csv");
+        File f = new File("src/main/resources/CSVs/"+company+".csv");
         System.out.println(f.getAbsolutePath());
         if(!f.exists()) {
             return Optional.empty();
