@@ -61,4 +61,11 @@ public class CompanyHandler {
         return Optional.of(asd);
 
     }
+    float linearPrediction(ArrayList<Coordinates> coords){
+        float value;
+        Coordinates prezent = coords.get(coords.size()-2);
+        Coordinates trecut = coords.get(coords.size()-365);
+        value = prezent.getY() + (prezent.getY() - trecut.getY());
+        return value;
+    }
 }
