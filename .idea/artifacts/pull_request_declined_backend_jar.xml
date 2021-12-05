@@ -81,6 +81,10 @@
       <element id="library" level="project" name="Maven: org.springframework:spring-web:5.3.9" />
       <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.3.9" />
       <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.28" />
+      <element id="library" level="project" name="Maven: org.neuroph:neuroph-core:2.8" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-nop:1.7.32" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-csv:1.6" />
+      <element id="javaee-facet-resources" facet="pull-request-declined-backend/web/Web" />
     </root>
   </artifact>
 </component>

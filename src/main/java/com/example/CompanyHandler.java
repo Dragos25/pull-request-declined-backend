@@ -68,4 +68,15 @@ public class CompanyHandler {
         value = prezent.getY() + (prezent.getY() - trecut.getY());
         return value;
     }
+
+    ArrayList<String> searchCompany(String toSearch) throws IOException {
+        ArrayList<String> allCompanies = readAllCompanies();
+        ArrayList<String> foundCompanies = new ArrayList<>();
+        for(String company: allCompanies){
+            if(company.contains(toSearch))
+                foundCompanies.add(company);
+
+        }
+        return foundCompanies;
+    }
 }
